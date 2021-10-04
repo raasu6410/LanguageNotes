@@ -19,8 +19,7 @@ class _LanguageNotesState extends State<LanguageNotes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-
+      // appBar: AppBar(),
     );
   }
 }
