@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main(){
   runApp(
-    MaterialApp(
+    MaterialApp(debugShowCheckedModeBanner: false,
       home: LanguageNotes(),
     )
   );
@@ -11,7 +11,9 @@ void main(){
 class LanguageNotes extends StatefulWidget {
   const LanguageNotes({Key? key}) : super(key: key);
 
-  @override
+
+
+
   _LanguageNotesState createState() => _LanguageNotesState();
 }
 
@@ -19,7 +21,7 @@ class _LanguageNotesState extends State<LanguageNotes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
+      appBar: AppBar(title: Text("Raasu"),),
     );
   }
 }
