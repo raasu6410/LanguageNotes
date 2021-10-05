@@ -21,7 +21,7 @@ class _LanguageNotesState extends State<LanguageNotes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("vethu Raasu"),),
+      appBar: AppBar(title: Text("gethu Raasu"),),
     );
   }
 }
