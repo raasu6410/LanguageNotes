@@ -22,6 +22,6 @@ class _LanguageNotesState extends State<LanguageNotes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("language notes"),),
-    )
+    );
   }
 }
