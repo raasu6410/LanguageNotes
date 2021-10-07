@@ -1,29 +1,26 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 void main(){
-  runApp(remainder());
+  runApp(MaterialApp(
+    home: Remainder(),
+  ));
 }
-class remainder extends StatefulWidget {
-  const remainder({Key? key}) : super(key: key);
+class Remainder extends StatefulWidget {
+  const Remainder({Key? key}) : super(key: key);
 
   @override
-  _remainderState createState() => _remainderState();
+  _RemainderState createState() => _RemainderState();
 }
 
-class _remainderState extends State<remainder> {
+class _RemainderState extends State<Remainder> {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: safeArea (child: Text('Language Notes')),
-=======
-    return Scaffold(
-      appBar: AppBar(title: Text("language notes"),),
->>>>>>> b98ac45e008d7c961f90d98d2cc07012dfc8bb50
+    return scaffold(
+      appBar:AppBar(
+        title: Text ('Language Notes'),
+      ),
+      body:Container(
+child: Text('Edit'),
+      )
     );
   }
 }
-
-
