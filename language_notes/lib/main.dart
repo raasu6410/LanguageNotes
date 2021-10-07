@@ -1,27 +1,24 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
-
 void main(){
-  runApp(
-    MaterialApp(debugShowCheckedModeBanner: false,
-      home: LanguageNotes(),
-    )
-  );
+  runApp(remainder());
+}
+class remainder extends StatefulWidget {
+  const remainder({Key? key}) : super(key: key);
+
+  @override
+  _remainderState createState() => _remainderState();
 }
 
-class LanguageNotes extends StatefulWidget {
-  const LanguageNotes({Key? key}) : super(key: key);
-
-
-
-
-  _LanguageNotesState createState() => _LanguageNotesState();
-}
-
-class _LanguageNotesState extends State<LanguageNotes> {
+class _remainderState extends State<remainder> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("language notes"),),
-    )
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: safeArea (child: Text('Language Notes')),
+    );
   }
 }
+
+
