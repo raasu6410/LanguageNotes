@@ -14,8 +14,9 @@ class Remainder extends StatefulWidget {
 class _RemainderState extends State<Remainder> {
   @override
   Widget build(BuildContext context) {
-    return scaffold(
+    return Scaffold(
       appBar:AppBar(
+        centerTitle: true,
         title: Text ('Language Notes'),
       ),
       body:Container(
