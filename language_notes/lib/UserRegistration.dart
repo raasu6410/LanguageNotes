@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:language_notes/main.dart';
 
 class UserRegistration extends StatefulWidget {
   const UserRegistration({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class UserRegistration extends StatefulWidget {
 class _UserRegistrationState extends State<UserRegistration> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
+ late var uid = FirebaseAuth.instance.currentUser?.uid;
   bool _isLoading = false;
 
   @override
@@ -49,7 +51,7 @@ class _UserRegistrationState extends State<UserRegistration> {
                                       Platform.isAndroid
                                           ? CircularProgressIndicator()
                                           : CupertinoActivityIndicator(
-
+// radius: 15,
                                               animating: true,
                                             ),
                                       Padding(
@@ -60,19 +62,19 @@ class _UserRegistrationState extends State<UserRegistration> {
                                   )),
                                 )
                               : Container();
-                          signInWithGoogle().then((value) =>
-                              Navigator.of(context)
-                                  .pushReplacementNamed("/dashboard")
-                                  .catchError((onError) {
-                                showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AlertDialog(
-                                          title: Text(onError.toString()));
-                                    });
-                              }
 
-                              ));
+                          signInWithGoogle()
+                              .then((value) => addUser(uid).then((value) =>
+                                  Navigator.of(context)
+                                      .pushReplacementNamed("/dashboard")))
+                              .catchError((onError) {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                      title: Text(onError.toString()));
+                                });
+                          });
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -120,4 +122,15 @@ Future<UserCredential?> signInWithGoogle() async {
     // Once signed in, return the UserCredential
     return userCredentials;
   }
+}
+
+
+Future<void> addUser(String? uid) {
+
+  return userRef
+      .doc().set({
+    "name":name,
+    "uid":uid,
+    "email":email,
+  });
 }

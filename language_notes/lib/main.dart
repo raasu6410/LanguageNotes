@@ -64,17 +64,3 @@ class _LaunchModuleState extends State<LaunchModule> {
     }
   }
 }
-
-Future<void> addUser(String uid) {
-  return userRef
-      .doc()
-      .set({
-    'uid': uid,
-    'name':name,
-    'email':email,
-
-  })
-      .then(
-          (value) => print("'full_name' & 'age' merged with existing data!"))
-      .catchError((error) => print("Failed to merge data: $error"));
-}
