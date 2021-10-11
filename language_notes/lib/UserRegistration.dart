@@ -70,7 +70,9 @@ class _UserRegistrationState extends State<UserRegistration> {
                                       return AlertDialog(
                                           title: Text(onError.toString()));
                                     });
-                              }));
+                              }
+
+                              ));
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,

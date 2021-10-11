@@ -1,5 +1,6 @@
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +21,9 @@ void main() async {
     home: LanguageNotes(),
   ));
 }
-
+CollectionReference userRef = FirebaseFirestore.instance.collection('user');
+var email = FirebaseAuth.instance.currentUser!.email;
+var name = FirebaseAuth.instance.currentUser!.displayName;
 class LanguageNotes extends StatefulWidget {
   const LanguageNotes({Key? key}) : super(key: key);
 
@@ -29,6 +32,7 @@ class LanguageNotes extends StatefulWidget {
 }
 
 class _LanguageNotesState extends State<LanguageNotes> {
+
   @override
   Widget build(BuildContext context) {
     Firebase.initializeApp();
@@ -54,35 +58,23 @@ class _LaunchModuleState extends State<LaunchModule> {
     var uid = FirebaseAuth.instance.currentUser?.uid;
     if (uid == null) {
       return UserRegistration();
-    }else{
+    }
+    else {
       return DashBoard();
     }
-    // } else {
-    //   return FutureBuilder(
-    //       // future: profile(),
-    //       builder: (BuildContext context, AsyncSnapshot snapshot) {
-    //     if (snapshot.connectionState == ConnectionState.waiting) {
-    //       return Scaffold(
-    //         backgroundColor: Colors.white70,
-    //         body: Center(
-    //             child: Column(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           children: [
-    //             Platform.isAndroid
-    //                 ? CircularProgressIndicator()
-    //                 : CupertinoActivityIndicator(
-    //                     animating: true,
-    //                   ),
-    //             Padding(
-    //               padding: const EdgeInsets.all(8.0),
-    //               child: Text("Loading"),
-    //             )
-    //           ],
-    //         )),
-    //       );
-    //     }
-    //   }
-    //   );
-    // }
   }
+}
+
+Future<void> addUser(String uid) {
+  return userRef
+      .doc()
+      .set({
+    'uid': uid,
+    'name':name,
+    'email':email,
+
+  })
+      .then(
+          (value) => print("'full_name' & 'age' merged with existing data!"))
+      .catchError((error) => print("Failed to merge data: $error"));
 }
