@@ -69,66 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 250,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.teal),
-                  onPressed: (){},
-                  child: const Text('English'),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 250,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
-                  onPressed: (){},
-                  child: const Text('Hindi'),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 250,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.blue),
-                  onPressed: (){},
-                  child: const Text('Malayalam'),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 250,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),
-                  onPressed: (){},
-                  child: const Text('Telugu'),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                width: 250,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.orange),
-                  onPressed: (){},
-                  child: const Text('Kanadam'),
-                ),
-              ),
-            ),
+
 
           ],
         ),

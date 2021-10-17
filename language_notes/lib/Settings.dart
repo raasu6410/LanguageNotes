@@ -42,6 +42,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           ElevatedButton.icon(
               onPressed: () => signout().then((value) {
+                print("Logout ");
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
